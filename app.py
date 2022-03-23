@@ -13,7 +13,7 @@ db = SQLAlchemy(app)
 class ToDo (db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column (db.String(100))
-    complete - db.Column (db.Boolean)
+    complete = db.Column (db.Boolean)
     
 
 @app.route("/")
@@ -21,18 +21,18 @@ def  index():
     #Show all database
     
     todo_list = ToDo.query.all()
-    print (todo_list)
-    return render_template("base.html")
+  
+    return render_template("base.html", todo_list = todo_list)
 
 
 
 if __name__ == "__main__":
     db.create_all()
     
-    new_todo = ToDo(title='todo_app', complete = False)
+    # new_todo = ToDo(title='todo_app', complete = False)
     
-    db.session.add (new_todo)
-    db.session.commit()
+    # db.session.add (new_todo)
+    # db.session.commit()
     
     
     app.run (debug=True)
