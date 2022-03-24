@@ -33,6 +33,14 @@ def add():
     db.session.commit()
     return redirect(url_for("index"))
 
+@app.route ("/update/<int:todo_id>")
+def update():
+    #Query our database to modify the Complete Variable
+    todo = Todo.query.filter_by (id = todo_id).first ()
+    todo.complete = not todo.complete
+    db.session.commit()
+    return redirect(url_for("index"))
+
 
 
 if __name__ == "__main__":
