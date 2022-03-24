@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>ToDo App</h1>
-    <form action="">
+    <form action="/add" method="POST">
         <div>
 
             <label for="title">ToDo Title</label>
@@ -28,13 +28,16 @@
 
         {% if todo.complete == False %}
 
-            <span>Not Complete</span>
+            <span>Not Completed</span>
 
         {% else %} 
         
             <span>Completed</span>
 
         {% endif %}
+
+        <a href="/">Update</a>
+        <a href="/">Delete</a>
 
 
     {% endfor %}
